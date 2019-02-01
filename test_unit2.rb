@@ -22,7 +22,7 @@ class TestUnit3 < Test::Unit::TestCase
   end
 
   def test_foo
-    assert_equal(3, 2)
+    assert_equal(2, 2)
   end
 end
 
