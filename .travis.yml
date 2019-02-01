@@ -11,7 +11,7 @@ addons:
 env:
   - TEST_CMD="rspec -f json -o rspec.json"
   - TEST_CMD="ruby mini_tester.rb" OPT="--framework minitest"
-  - TEST_CMD="for name in test_unit test_unit2; do ruby $name.rb --runner=xml > $name.xml ; done
+  - TEST_CMD="ruby test_unit_all.rb --runner=xml > test_unit.xml"
 script:
   - $TEST_CMD
 after_script:
