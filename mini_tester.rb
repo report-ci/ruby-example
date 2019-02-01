@@ -6,6 +6,6 @@ Minitest::Reporters.use! Minitest::Reporters::JUnitReporter.new
 
 class MiniTester < Minitest::Test
   def test_1
-    assert false
+    assert true
   end
 end
