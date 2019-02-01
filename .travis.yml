@@ -1,0 +1,18 @@
+language: ruby
+
+os:
+  - linux
+
+addons:
+  apt:
+    packages:
+      - python
+
+env:
+  - TEST_CMD="rspec -f json -o rspec.json"
+  - TEST_CMD="ruby minitester.rb" OPT="--framework minitest"
+  - TEST_CMD="for name in test_unit test_unit2; do ruby $name.rb --runner=xml $name.xml >  ; done
+script:
+  - $TEST_CMD
+after_script:
+  - curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py | python - $OPT
