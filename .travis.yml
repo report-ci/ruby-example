@@ -13,6 +13,7 @@ env:
   - TEST_CMD="ruby mini_tester.rb" OPT="--framework minitest" FRAMEWORK=MiniTester
   - TEST_CMD="ruby test_unit_all.rb --runner=xml > test_unit.xml" FRAMEWORK=TestUnit
 script:
+  - set -o pipefail
   - echo $TEST_CMD | bash | tee $FRAMEWORK.log
 
 after_failure:
