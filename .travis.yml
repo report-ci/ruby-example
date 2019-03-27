@@ -14,7 +14,7 @@ env:
   - TEST_CMD="ruby test_unit_all.rb --runner=xml > test_unit.xml" FRAMEWORK=TestUnit
 script:
   - set -o pipefail
-  - echo $TEST_CMD | bash 2> $FRAMEWORK.log
+  - echo $TEST_CMD | bash 2> >(tee $FRAMEWORK.log >&2)
   - cat $FRAMEWORK.log
 
 after_failure:
