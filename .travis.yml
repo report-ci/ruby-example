@@ -13,7 +13,9 @@ env:
   - TEST_CMD="ruby mini_tester.rb" OPT="--framework minitest" FRAMEWORK=MiniTester
   - TEST_CMD="ruby test_unit_all.rb --runner=xml > test_unit.xml" FRAMEWORK=TestUnit
 script:
-  - echo $TEST_CMD | bash | tee $FRAMEWORK.log
+  - set -o pipefail
+  - echo $TEST_CMD | bash 2> >(tee $FRAMEWORK.log >&2)
+  - cat $FRAMEWORK.log
 
 after_failure:
   - curl -s https://raw.githubusercontent.com/report-ci/scripts/master/annotate.py | python - --tool ruby --input $FRAMEWORK.log --name "$FRAMEWORK Log"

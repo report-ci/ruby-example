@@ -16,9 +16,9 @@ class TestUnit < Test::Unit::TestCase
   end
 
   # Fake test
-  def test_fail
+  def test_fail-->_--as
     assert_equal(4, 4);
-    assert_equal(4, 4);
+    assert_equal(4, 4);-->_--as
     #fail('Not implemented')
   end
 
