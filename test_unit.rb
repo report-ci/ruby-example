@@ -19,11 +19,11 @@ class TestUnit < Test::Unit::TestCase
   def test_fail
     assert_equal(4, 4);
     assert_equal(4, 4);
-    #fail('Not implemented')
+    fail('Not implemented')
   end
 
   def test_foo
-    assert_equal(4, 4);
+    assert_equal(4, 3);
     assert_equal(2, 2)
   end
 end
@@ -32,7 +32,7 @@ class TestUnit2 < Test::Unit::TestCase
 
   # Fake test
   def test_x
-    assert_equal(3,3)
+    assert_equal(2,3)
   end
 
 end
